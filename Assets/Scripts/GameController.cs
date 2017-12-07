@@ -8,28 +8,28 @@ public class GameController : MonoBehaviour {
 
     public ShowPanels showPanels;
 
-    private Model model;
+   
+
+    static GameController instance;
 
     private void Awake()
     {
-        model = gameObject.GetComponent<Model>();
-        UIModelAccess.Model = model;
+        instance = this;
+        
     }
-
 
     public void GameOver()
     {
-        Debug.Log("Player scored: " + Model.PlayerScore);
+        //Debug.Log("Player scored: " + Model.Instance.PlayerScore);
         showPanels.ShowGameOverPanel();
     }
 
     // Getter and Setter
-
-    public Model Model
+    public static GameController Instance
     {
         get
         {
-            return model;
-        }        
+            return instance;
+        }       
     }
 }

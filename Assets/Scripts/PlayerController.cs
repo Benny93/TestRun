@@ -6,8 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour {
 
-    public GameController GameController;
-
     public float WalkSpeed = 4f;
 
     public GameObject DefaultBulletPrefab;   
@@ -23,20 +21,7 @@ public class PlayerController : MonoBehaviour {
     Animator animator;
     SpriteRenderer spriteRenderer;
 
-    float passedTimeBetweenShots;
-
-    public int Score
-    {
-        get
-        {
-            return GameController.Model.PlayerScore;
-        }
-
-        set
-        {
-            GameController.Model.PlayerScore = value;
-        }
-    }
+    float passedTimeBetweenShots;   
 
     enum PlayerState {
         IDLE,
@@ -153,7 +138,7 @@ public class PlayerController : MonoBehaviour {
             // was hit by bullet
             // player dies            
             DestroyPlayer(gameObject);
-            GameController.GameOver();
+            GameController.Instance.GameOver();
         }
     }
 

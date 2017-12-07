@@ -40,7 +40,7 @@ public class DefaultEnemy : MonoBehaviour {
             // destroy bullet
             Destroy(other.gameObject);
             // raise player score
-            Player.Score += 1;
+            Model.Instance.PlayerScore += 1;
             // destroy self
             DestroyEnemy(gameObject);
         }
