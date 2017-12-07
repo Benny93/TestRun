@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Model))]
 public class GameController : MonoBehaviour {
 
+    public ShowPanels showPanels;
+
     private Model model;
 
     private void Awake()
@@ -17,6 +19,7 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         Debug.Log("Player scored: " + Model.PlayerScore);
+        showPanels.ShowGameOverPanel();
     }
 
     // Getter and Setter
