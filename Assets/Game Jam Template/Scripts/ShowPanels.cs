@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShowPanels : MonoBehaviour {
-
-	public GameObject optionsPanel;							//Store a reference to the Game Object OptionsPanel 
+public class ShowPanels : UIModelAccess {
+    // Panels
+    public GameObject optionsPanel;							//Store a reference to the Game Object OptionsPanel 
 	public GameObject optionsTint;							//Store a reference to the Game Object OptionsTint 
 	public GameObject menuPanel;							//Store a reference to the Game Object MenuPanel 
 	public GameObject pausePanel;							//Store a reference to the Game Object PausePanel 
     public GameObject GameOverPanel;
+  
 
-	//Call this function to activate and display the Options panel during the main menu
-	public void ShowOptionsPanel()
+    //Call this function to activate and display the Options panel during the main menu
+    public void ShowOptionsPanel()
 	{
 		optionsPanel.SetActive(true);
 		optionsTint.SetActive(true);

@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     private void Awake()
     {
         model = gameObject.GetComponent<Model>();
+        UIModelAccess.Model = model;
     }
 
 
