@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212012481486908456}
   - component: {fileID: 95235765202649422}
   - component: {fileID: 61678613313505556}
-  - component: {fileID: 114088222438249048}
+  - component: {fileID: 114704111730762794}
   m_Layer: 0
   m_Name: JarBullet
   m_TagString: Untagged
@@ -85,7 +85,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114088222438249048
+--- !u!114 &114704111730762794
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164087591756096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21012e54691bf5e47bac700b4f2d2125, type: 3}
+  m_Script: {fileID: 11500000, guid: f5a06ca3f13866642bdb07b6a028d257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10

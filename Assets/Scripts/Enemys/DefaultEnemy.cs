@@ -18,12 +18,15 @@ public class DefaultEnemy : MonoBehaviour {
 	
 	
 	void Update () {
-        passedTimeSinceLastShot += Time.deltaTime;
-
-        if (passedTimeSinceLastShot > TimeBetweenShots) {
-            passedTimeSinceLastShot = 0f;
-            Vector3 directionToPlayer = Player.transform.position - transform.position;
-            DefaultBullet.Shoot(directionToPlayer.normalized, transform.position + directionToPlayer.normalized * 1.2f, Bullet);
+        if (Player != null)
+        {
+            passedTimeSinceLastShot += Time.deltaTime;
+            if (passedTimeSinceLastShot > TimeBetweenShots)
+            {
+                passedTimeSinceLastShot = 0f;
+                Vector3 directionToPlayer = Player.transform.position - transform.position;
+                DefaultBullet.Shoot(directionToPlayer.normalized, transform.position + directionToPlayer.normalized * 1.2f, Bullet);
+            }
         }
 	}
 

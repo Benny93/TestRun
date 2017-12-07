@@ -6,15 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour {
 
+    public GameController GameController;
+
     public float WalkSpeed = 4f;
 
-    public GameObject DefaultBulletPrefab;
+    public GameObject DefaultBulletPrefab;   
 
     public float TimeBetweenShots = 1f;
 
     [SerializeField]
-    int score;
-    [SerializeField]
+    
     PlayerState state;
     [SerializeField]
     Orientation orientation;
@@ -28,12 +29,12 @@ public class PlayerController : MonoBehaviour {
     {
         get
         {
-            return score;
+            return GameController.Model.PlayerScore;
         }
 
         set
         {
-            score = value;
+            GameController.Model.PlayerScore = value;
         }
     }
 
@@ -145,5 +146,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-   
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponent<EnemyBullet>())
+        {
+            // was hit by bullet
+            // player dies            
+            DestroyPlayer(gameObject);
+            GameController.GameOver();
+        }
+    }
+
+    static void DestroyPlayer(GameObject player) {
+        Destroy(player);
+    }
 }
