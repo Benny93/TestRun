@@ -118,8 +118,11 @@ public class StartOptions : MonoBehaviour {
         //Hide the game over menu UI element
         showPanels.HideGameOverPanel();
 
+        
         //Load the selected scene, by scene index number in build settings
         SceneManager.LoadScene(sceneToStart);
+
+        GameController.Instance.ResetModel();
     }
 
 

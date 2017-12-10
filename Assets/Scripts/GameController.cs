@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class GameController : MonoBehaviour {
 
     public void GameOver()
     {
-        //Debug.Log("Player scored: " + Model.Instance.PlayerScore);
+        //Debug.Log("Player scored: " + Model.Instance.PlayerScore);        
         showPanels.ShowGameOverPanel();
     }
 
@@ -31,5 +32,11 @@ public class GameController : MonoBehaviour {
         {
             return instance;
         }       
+    }
+
+    internal void ResetModel()
+    {
+        Destroy(Model.Instance);
+        gameObject.AddComponent<Model>();
     }
 }

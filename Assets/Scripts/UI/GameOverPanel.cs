@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameOverPanel : MonoBehaviour {
     public Text PlayerScoreText;
-    private void Start()
+    private void Update()
     {
         if (PlayerScoreText != null)
         {
