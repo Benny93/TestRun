@@ -54,4 +54,9 @@ public class ShowPanels : MonoBehaviour {
     public void ShowGameOverPanel() {
         GameOverPanel.SetActive(true);
     }
+
+    public void HideGameOverPanel()
+    {
+        GameOverPanel.SetActive(false);
+    }
 }

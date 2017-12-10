@@ -63,6 +63,21 @@ public class StartOptions : MonoBehaviour {
 
 	}
 
+    public void RestartButtonClicked() {
+        //If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic, using length of fadeColorAnimationClip as time. 
+        //To change fade time, change length of animation "FadeToColor"
+        if (changeMusicOnStart)
+        {
+            playMusic.FadeDown(fadeColorAnimationClip.length);
+        }
+
+        //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+        Invoke("ReloadDelayed", fadeColorAnimationClip.length * .5f);
+
+        //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
+        animColorFade.SetTrigger("fade");
+    }
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += SceneWasLoaded;
@@ -96,7 +111,19 @@ public class StartOptions : MonoBehaviour {
 		SceneManager.LoadScene (sceneToStart);
 	}
 
-	public void HideDelayed()
+    public void ReloadDelayed() {
+        //Pause button now works if escape is pressed since we are no longer in Main menu.
+        inMainMenu = false;
+
+        //Hide the game over menu UI element
+        showPanels.HideGameOverPanel();
+
+        //Load the selected scene, by scene index number in build settings
+        SceneManager.LoadScene(sceneToStart);
+    }
+
+
+    public void HideDelayed()
 	{
 		//Hide the main menu UI element after fading out menu for start game in scene
 		showPanels.HideMenu();
